@@ -24,24 +24,24 @@ Right after he starts the app, it crashes. As he looks into it, he notices that 
 that contains some of his code.
 
 There are a few things you might have noticed in the workflow described in this example.
-Firstly, sending the project back and forth between developers via email doesn't seem like
+Firstly, **sending the project back and forth** between developers via email doesn't seem like
 a particularly good idea. As the project grows, this will become an increasingly slower process. 
 
-Secondly, notice how Devan could delete source files that were completely unrelated to the part
+Secondly, notice how Devan **could delete source files** that were completely unrelated to the part
 he was currently working on. In fact, Ben didn't even notice that a file was missing at first.
 
-Also, when Ben asks Devan to change some of the images, he has to send the whole project back
+Also, when Ben asks Devan to change some of the images, he has to **send the whole project** back
 even though he only worked on a small section of the project.
 
 This also leads to another problem: Each time a new version of the game is ready (either a minor
 version change like a bugfix, or a major change that adds a new feature)
-a new project folder for that version has to be created. This might lead to a nightmare like this:
+a **new project folder for that version** has to be created. This might lead to a nightmare like this:
 
-[IMAGE]
+![image](/assets/img/test.PNG)
 
-Why is this so bad? Well, several things: One obvious reason is that the disk space usage
+Why is this so bad? Well, several things: One obvious reason is that the **disk space usage**
 will increase with every new version and may soon become unbearable.
-The more important issue, however, is the fact that it makes reverting back to a previous
+The more important issue, however, is the fact that it makes **reverting back** to a previous
 state of your project hard. In order to be able to undo a change, you would have to create a
 new version beforehand. Otherwise you could not be sure that your changes won't be lost
 in case you mess something up.
@@ -53,18 +53,18 @@ This is where Git comes into play.
 
 ## What is Git?
 
-Git is a version control system. This means that it can be used to track changes in the source
+Git is a version control system. This means that it can be used to **track changes** in the source
 files of a software project. However, it is not limited to software but can be applied to 
 virtually any project that involves multiple files. For example, a writer might use git to
 manage different chapters in a book.
 
-Git makes collaboration easy through branches. Each developer can work on his own separate
+Git makes **collaboration** easy through branches. Each developer can work on his own separate
 version of the project which makes it harder to break things accidentally as seen in the example.
-People can create and upload changes they make to a central repository instead of having
+People can create and upload changes they make to a **central repository** instead of having
 to manage dozens of scattered files. 
 
 Since Git tracks any changes in the files that you add/delete or edit, it allows you to
-easily go back to a previous state. This frees you from having to manage multiple versions yourself
+easily **go back to a previous state**. This frees you from having to manage multiple versions yourself
 as local backups.
 
 
