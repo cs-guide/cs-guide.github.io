@@ -1,12 +1,12 @@
-
-As a student you probably have some way to organize your projects and files on your computer.
-These may include assignments, personal projects, resumes and others.
+**Git is for everyone.** 
+Whether you're a software developer, digital artist, student, teacher or writer - 
+you probably have some way to organize your projects and files on your computer.
 Especially for larger and important projects you most likely create backups of your work.
 If not, you will probably regret it at some point :)
 
 I used to send backups to my email or save them on a USB stick. 
 However, the problem with these types of backups is that they take quite some time if
-you have to create them manually. As your project grows, this process will take even longer.
+you have to create them manually. As your project grows, this process will be even slower.
 
 Because humans are lazy, you will simply skip or forget about backing up your files. 
 It could also happen that you accidentally delete or edit files that you didn't mean to edit.
@@ -24,12 +24,12 @@ new versions of the project via email or use a sevice like Dropbox or Google Dri
 But this way you will never have a complete picture of the current state of the project,
 since files are scattered everywhere on different computers.
 
-I could go on for ever about these issues but it's time to focus on a solution.
+There are certainly many more of these issues but it's time to focus on a solution.
 
 # What is Git?
 
-By now, you should have a basic understanding of what the most common problems are that
-can occur when working on a project that involves multiple files, versions or people.
+By now, you should have a basic understanding of what some of the most common problems are that
+occur when working on a project that involves multiple files, versions or people.
 
 Git is a system that aims to address these problems.
 Let's have a look at how Git achieves this, briefly describing the solution for each issue:
@@ -46,5 +46,50 @@ any files that were tracked by Git. This spares you from having to create local 
 and you will also have much finer control of to which point in the commit history you want to
 revert back to.
 
+- **Collaboration**:
+The common Git workflow is centralized. This means you have one shared repository that all members of
+a team can `push` changes to. You can create different branches representing different topics that
+individuals can work on independently from the central branch (often called `master`).
+The branches can then by merged back into the `master` branch so that others have the latest version
+of the project available.
 
 
+
+# The basic Git workflow
+## Getting started
+
+If you want to try this out on your computer right now, please refer to [this tutorial]() that describes
+how to setup Git on your computer.
+{: .notice--info}
+
+Git is almost always used via the terminal. Especially if you're a Windows user this might seem 
+unfamiliar at first but you will quickly learn to appreciate the simplicity. There are in fact several
+GUI tools for Git but I would still advise to start with the command line as this gives you much more control. 
+
+Let's look at the commands that you will use frequently. Open up a terminal in the 
+root directory of your project (or create a new one) to follow along.
+
+```
+git init
+```
+
+In order for Git to be able to track your files you have to initialize a local repository.
+All files that are in that directory or in a subdirectory are visible
+to Git. The `init` command will automatically create a `.git` folder that contains all of the information about
+your project. Git will also automatically setup a `master` branch that you can work on.
+
+```
+git status
+```
+
+The `status` command will become very handy to quickly see if anything has changed in your repository.
+Therefore you should use it often. In a repository that does not contain any changed files the output of that
+command should look something like this:
+
+
+This is what the basic workflow will look like when working with Git:
+1. Work on your project (either on the `master` or on a topic branch).
+2. Add your changes to the staging area / index: `git add`
+3. Commit your changes locally: `git commit`
+4. Push your commits to a remote repository: `git push`
+5. Repeat
