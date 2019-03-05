@@ -83,8 +83,48 @@ git status
 ```
 
 The `status` command will become very handy to quickly see if anything has changed in your repository.
-Therefore you should use it often. In a repository that does not contain any changed files the output of that
+Therefore you should use it regularly. In a repository that does not contain any changed files the output of that
 command should look something like this:
+
+![Image](/assets/img/test2.png)
+
+## Work on your project
+Since our repository is pretty empty right now, let's add some files and run the `git status` command again:
+
+![Image](/assets/img/test3.png)
+
+As you can see Git recognized that the contents in the repository have changed. However, to actually save the changes
+we made, we have to add the files to the staging area first. Let's do just that:
+
+```
+git add -A
+```
+
+The `-A` option adds *all* changes we made to the repository since the last commit to the index. 
+You can also be more precise about which files you want to stage. If you want to find more about the `git add`
+command, you can check out my blog post on exactly this topic: [Git Add Demystified]().
+
+Running `git status` again will inform us about the changes we just made. This will show you which files were modified,
+renamed, copied or deleted or which ones have not been tracked yet. Any time you change a tracked file you have to readd it.
+This may sound annoying but it prevents you from accidentally adding changes to the staging area that you didn't want to track.
+
+![Image](/assets/img/test4.png)
+
+If you decide you want to unstage any files that you might have accidentally added, you can run
+`git rm --cached <file>` as the terminal message points out.
+
+## Commiting your changes
+
+Now it's time to create a single commit from all your changes you have previously made. A commit will include all
+files that are currently in the staging area. When using `git command` you will be asked to write a short message about
+your commit:  
+
+![Image](/assets/img/test5.png)
+
+This is very important, especially if you collaborate with others on a project. People want to quickly
+see what a specific commit is all about. Therefore, you should briefly explain what changes you made and why.  
+In case you want to find out more about good commit messages, I'd highly recommend this article: 
+[How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/).
 
 
 This is what the basic workflow will look like when working with Git:

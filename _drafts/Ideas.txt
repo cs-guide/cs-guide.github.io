@@ -1,7 +1,9 @@
 
+- Git add explained!!
 - Github for students
 - Git guide
 - Things you didn't know you could do in git
 - Coming up with project ideas
 - Common programming mistakes and how to avoid them
 - How to plan a java project
+- Regex tutorial
