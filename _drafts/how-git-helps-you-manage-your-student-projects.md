@@ -1,3 +1,4 @@
+
 **Git is for everyone.** 
 Whether you're a software developer, digital artist, student, teacher or writer - 
 you probably have some way to organize your projects and files on your computer.
@@ -104,8 +105,8 @@ The `-A` option adds *all* changes we made to the repository since the last comm
 You can also be more precise about which files you want to stage. If you want to find more about the `git add`
 command, you can check out my blog post on exactly this topic: [Git Add Demystified]().
 
-Running `git status` again will inform us about the changes we just made. This will show you which files were modified,
-renamed, copied or deleted or which ones have not been tracked yet. Any time you change a tracked file you have to readd it.
+Running `git status` again will inform us about the changes we just made. This will show you files that were modified,
+renamed, copied or deleted or which ones haven't been tracked yet. Any time you change a tracked file you have to readd it.
 This may sound annoying but it prevents you from accidentally adding changes to the staging area that you didn't want to track.
 
 ![Image](/assets/img/test4.png)
@@ -115,16 +116,49 @@ If you decide you want to unstage any files that you might have accidentally add
 
 ## Commiting your changes
 
-Now it's time to create a single commit from all your changes you have previously made. A commit will include all
+Now it's time to bundle the changes you have previously made into a single commit. A commit will include all
 files that are currently in the staging area. When using `git command` you will be asked to write a short message about
 your commit:  
 
 ![Image](/assets/img/test5.png)
 
-This is very important, especially if you collaborate with others on a project. People want to quickly
-see what a specific commit is all about. Therefore, you should briefly explain what changes you made and why.  
+Don't neglect the commit message especially when collaborating with others (your future self will thank you as well)! 
+People want to quickly see what a specific commit is all about. Therefore, you should briefly explain what changes you made and why.
 In case you want to find out more about good commit messages, I'd highly recommend this article: 
 [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/).
+
+You have now successfully created your first commit!
+{: .notice--danger}
+
+
+# Working with remote repositories
+
+Until now, you have used Git exclusively offline. But you would want to store your projects somewhere else than on your local
+machine (for backups and collaboration/distribution of your project). You could either set up your own Git server or simply
+use an existing hosting site. The by far most popular one is GitHub which I will be using in this section.
+
+Add GitHub description
+{: .notice--danger}
+
+## Getting started with GitHub
+
+Head over to [GitHub](https://github.com/) and create a new user account or login with an existing one.
+We'll start by creating a new repository (use the `New` button on the homepage or click [here](https://github.com/new)). 
+Enter the name of your project and an optional description (you can easily change these later). Choose whether you want to share your repository with anyone to see or keep it private.
+
+**Note:** GitHub recently changed their policy to provide free private repositories for everyone (limited to 3 contributors per
+project). Previously this was only included in the paid plan.
+{: .notice--info}
+
+You can also add readme and license files or create them later.
+
+![Image](/assets/img/test6.png)
+
+Now it's time to connect your local repository to GitHub.
+
+## Pushing your changes to GitHub
+
+
 
 
 This is what the basic workflow will look like when working with Git:
