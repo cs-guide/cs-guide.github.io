@@ -21,8 +21,8 @@ This could quickly lead to a nightmare like this:
 Also, what if you wanted to cooperate with someone else on your project?
 If each of you would work on a different section of the project, collaboration could be pretty
 stressful. In order to share updates with each other, you would have to send
-new versions of the project via email or use a sevice like Dropbox or Google Drive.
-But this way you will never have a complete picture of the current state of the project,
+new versions of the project via email or use a service like Dropbox or Google Drive.
+But this way you will never have a complete picture of the current state of the project
 since files are scattered everywhere on different computers.
 
 There are certainly many more of these issues but it's time to focus on a solution.
@@ -51,21 +51,28 @@ revert back to.
 The common Git workflow is centralized. This means you have one shared repository that all members of
 a team can `push` changes to. You can create different branches representing different topics that
 individuals can work on independently from the central branch (often called `master`).
-The branches can then by merged back into the `master` branch so that others have the latest version
+The branches can then be merged back into the `master` branch so that others have the latest version
 of the project available.
 
 
-
 # The basic Git workflow
+
+This is what the basic workflow will look like when working with Git:
+1. Work on your project (either on the `master` or on a topic branch).
+2. Add your changes to the staging area/index: `git add`
+3. Commit your changes locally: `git commit`
+4. Push your commits to a remote repository: `git push`
+5. Repeat
+
 ## Getting started
 
 If you want to try this out on your computer right now, please refer to [this tutorial]() that describes
-how to setup Git on your computer.
+how to set up Git on your computer.
 {: .notice--info}
 
 Git is almost always used via the terminal. Especially if you're a Windows user this might seem 
 unfamiliar at first but you will quickly learn to appreciate the simplicity. There are in fact several
-GUI tools for Git but I would still advise to start with the command line as this gives you much more control. 
+GUI tools for Git but I would still advise starting with the command line as this gives you much more control. 
 
 Let's look at the commands that you will use frequently. Open up a terminal in the 
 root directory of your project (or create a new one) to follow along.
@@ -77,7 +84,7 @@ git init
 In order for Git to be able to track your files you have to initialize a local repository.
 All files that are in that directory or in a subdirectory are visible
 to Git. The `init` command will automatically create a `.git` folder that contains all of the information about
-your project. Git will also automatically setup a `master` branch that you can work on.
+your project. Git will also automatically set up a `master` branch that you can work on.
 
 ```
 git status
@@ -127,15 +134,18 @@ People want to quickly see what a specific commit is all about. Therefore, you s
 In case you want to find out more about good commit messages, I'd highly recommend this article: 
 [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/).
 
-You have now successfully created your first commit!
-{: .notice--danger}
-
+**Tip:** To change the default text editor for your commit messages, type: `git config --global core.editor "path"` where
+`path` is the absolute file path to the executable of your preferred text editor. For a shorter version of the `commit`
+command without having to open an editor, use `git commit -m "Your commit message"` 
+{: .notice--info}
 
 # Working with remote repositories
 
-Until now, you have used Git exclusively offline. But you would want to store your projects somewhere else than on your local
+Until now, you have used Git exclusively offline. But you probably want to store your projects somewhere else than on your local
 machine (for backups and collaboration/distribution of your project). You could either set up your own Git server or simply
-use an existing hosting site. The by far most popular one is GitHub which I will be using in this section.
+use an existing hosting site. The most popular one by far is GitHub which I will be using in this section.
+
+GitHub has many features that simplify collaboration on a project and uses Git for version control.
 
 Add GitHub description
 {: .notice--danger}
@@ -154,16 +164,32 @@ You can also add readme and license files or create them later.
 
 ![Image](/assets/img/test6.png)
 
-Now it's time to connect your local repository to GitHub.
+When the repository has been created you should see some commands that Git recommends to setup your project. 
+It's time to connect your local repository with GitHub.
 
-## Pushing your changes to GitHub
+## Connecting your local repository
 
+We first have to add GitHub as a remote repository. You can copy the `git remote add origin` command from the previous GitHub page
+and paste it into your terminal. Choose the HTTPS link for now and adapt the URL to your repo:
 
+```
+git remote add origin https://github.com/username/repo.git
+```
 
+Later I would recommend using the SSH URL (in the form `git@github.com:username/repo.git`). This way you won't have to enter your 
+username and password every time you connect to GitHub. You can find more info about this 
+[here](https://help.github.com/en/articles/which-remote-url-should-i-use).
 
-This is what the basic workflow will look like when working with Git:
-1. Work on your project (either on the `master` or on a topic branch).
-2. Add your changes to the staging area / index: `git add`
-3. Commit your changes locally: `git commit`
-4. Push your commits to a remote repository: `git push`
-5. Repeat
+This command adds the link to your GitHub repository to a list of remotes which you can then refer to by its name instead of 
+having to use the full URL. The name of the remote doesn't matter but `origin` is the one that most people use.
+
+![Image](/assets/img/test7.png)
+
+**Tip:** If you accidentally entered the wrong link use the command `git remote remove origin` and readd the remote.
+For a list of all your current remotes type `git remote -v`.
+{: .notice--info}
+
+## Pushing your work to GitHub
+
+![Image](/assets/img/test8.png)
+
