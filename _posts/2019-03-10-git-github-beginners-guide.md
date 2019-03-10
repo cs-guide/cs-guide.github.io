@@ -1,4 +1,6 @@
 ---
+title: A Complete Beginner's Guide to Git and GitHub [2019]
+canonical_url: "{{ page.url | prepend: site.url }}"
 tags:
   - Git
   - GitHub

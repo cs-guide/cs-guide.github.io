@@ -1,0 +1,18 @@
+_layout/single.html:
+
+/*<h4 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h4>*/
+
+<h4 class="page__related-title">{{ site.data.ui-text[site.locale].more_label | default: "Learn more" }}</h4>
+
+_sass/_variables.scss
+
+/*$right-sidebar-width-narrow: 200px !default;
+$right-sidebar-width: 300px !default;
+$right-sidebar-width-wide: 400px !default;*/
+
+$right-sidebar-width-narrow: 150px !default;
+$right-sidebar-width: 250px !default;
+$right-sidebar-width-wide: 350px !default;
+
+
+
