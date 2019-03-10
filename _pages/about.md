@@ -4,15 +4,14 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Hey, thanks for visiting my site! I'm Jonas and a computer science student at KIT
+in Germany. I originally created CS-Guide to make Git and GitHub more accessible 
+to beginners. Let's see how this goes and happy coding!
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+If you've never used Git before I would recommend starting with this post:  
+<a href="{{ site.baseurl }}{% post_url 2019-03-10-a-beginners-guide-to-git-and-github %}">A beginner's guide to Git and GitHub</a>
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+Check out all posts sorted by tags:  
+<a href="{{ site.baseurl }}{% link _pages/tag-archive.md %}">Posts by Tag</a>
 
 
-[jekyll-organization]: https://github.com/jekyll
