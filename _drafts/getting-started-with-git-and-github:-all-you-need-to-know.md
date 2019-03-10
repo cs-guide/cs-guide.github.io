@@ -1,3 +1,10 @@
+---
+tags:
+  - Git
+  - GitHub
+permalink: /:categories/:title
+---
+
 
 **Git is for everyone.** 
 Whether you're a software developer, digital artist, student, teacher or writer - 
