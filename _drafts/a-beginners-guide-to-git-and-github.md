@@ -213,3 +213,11 @@ The `-u` option will make your local `master` branch track the remote `master` b
 any changes to GitHub you can just type `git push`.
 
 
+    Keep track of all files in a project
+    Record any changes to project files
+    Restore previous versions of files
+    Compare and analyze code
+    Merge code from different computers and different team members.
+
+
+
