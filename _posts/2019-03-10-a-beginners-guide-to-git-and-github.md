@@ -2,7 +2,6 @@
 tags:
   - Git
   - GitHub
-permalink: /:categories/:title
 ---
 
 

@@ -35,6 +35,7 @@ defaults:
     values:
       layout: single
       read_time: true
+      permalink: /:categories/:title
 
   - scope:
       path: "assets/img"
