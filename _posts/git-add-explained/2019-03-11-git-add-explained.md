@@ -25,33 +25,13 @@ Hopefully this will clear things up!
 ```
 git add .
 ```
+Stages all files but only in the current directory.
 
 | New files | Modified files | Deleted files |
-|-----------|----------------|---------------|
-| ✅        | ✅             | ✅            |
+|-------|--------|---------|
+| ✅ | ✅ | ✅ |
 
-Stages all files in the current directory and its subdirectories. The `.` refers to the current directory whereas
-`..` would refer to the parent directory.
-
-
-```
-git add <pathspec>...
-```
-
-| New files | Modified files | Deleted files |
-|-----------|----------------|---------------|
-| ✅        | ✅             | ✅            |
-
-
-[`<pathspec>...`](https://git-scm.com/docs/gitglossary) is used to add one or multiple specific files or folders that match the pattern.
-
-**Examples:**  
-
-| `git add file.txt`            | only adds `file.txt`                                             |
-| `git add file1.txt file2.txt` | adds `file1.txt` and `file2.txt`                                 |
-| `git add foo`                 | adds all files and subdirectories within the `foo` folder        |
-| `git add foo/*.txt`           | adds all `.txt` files within the `foo` folder and subdirectories |
-
+![Image](git-add-dot.png)
 
 
 ```
@@ -73,6 +53,14 @@ git add -all
 
 ```
 git add *
+```
+
+```
+git add file.txt
+```
+
+```
+git add file1.txt file2.txt file3.txt
 ```
 
 ```
