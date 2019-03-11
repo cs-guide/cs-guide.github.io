@@ -23,10 +23,9 @@ It could also happen that you accidentally delete or edit files that you didn't 
 In case something goes wrong, these simple mistakes might cost you hours or even days of work.
 
 You might also have local backups, creating a folder for each new version.
-This could quickly lead to a nightmare like this (these are the actual save files for one of my 
-[projects](https://github.com/jonasstr/cubos-android-game) before I discovered Git):
+This could quickly lead to a nightmare like this:
 
-![Lots of backup files for one of my projects.](manual-file-backups-no-git.PNG "This is what happens if you don't use Git")
+![Image](/assets/img/test.PNG "Test desc")
 
 Also, what if you wanted to cooperate with someone else on your project?
 If each of you would work on a different section of the project, collaboration could be pretty
@@ -104,12 +103,12 @@ The `status` command will become very handy to quickly see if anything has chang
 Therefore you should use it regularly. In a repository that does not contain any changed files the output of that
 command should look something like this:
 
-![The git status command without any commits](git-status-no-commits.png "Use the status command to see what has changed")
+![Image](/assets/img/test2.png)
 
 ## Work on your project
 Since our repository is pretty empty right now, let's add some files and run the `git status` command again:
 
-![Creating some files and running git status again](git-status-new-files.png "Run git status again after working on the project")
+![Image](/assets/img/test3.png)
 
 As you can see Git recognized that the contents in the repository have changed. However, to actually save the changes
 we made, we have to add the files to the staging area first. Let's do just that:
@@ -126,7 +125,7 @@ Running `git status` again will inform us about the changes we just made. This w
 renamed, copied or deleted or which ones haven't been tracked yet. Any time you change a tracked file you have to readd it.
 This may sound annoying but it prevents you from accidentally adding changes to the staging area that you didn't want to track.
 
-![Adding files using the git add command](git-add.png "Run git add to add all files to the index")
+![Image](/assets/img/test4.png)
 
 If you decide you want to unstage any files that you might have accidentally added, you can run
 `git rm --cached <file>` as the terminal message points out.
@@ -137,7 +136,7 @@ Now it's time to bundle the changes you have previously made into a single commi
 files that are currently in the staging area. When using `git command` you will be asked to write a short message about
 your commit:  
 
-![Image](test5.png)
+![Image](/assets/img/test5.png)
 
 Don't neglect the commit message especially when collaborating with others (your future self will thank you as well)! 
 People want to quickly see what a specific commit is all about. Therefore, you should briefly explain what changes you made and why.
@@ -172,7 +171,7 @@ project). Previously this was only included in the paid plan.
 
 You can also add readme and license files or create them later.
 
-![Image](test6.png)
+![Image](/assets/img/test6.png)
 
 When the repository has been created you should see some commands that Git recommends to setup your project. 
 It's time to connect your local repository with GitHub.
@@ -193,7 +192,7 @@ username and password every time you connect to GitHub. You can find more info a
 This command adds the link to your GitHub repository to a list of remotes which you can then refer to by its name instead of 
 having to use the full URL. The name of the remote doesn't matter but `origin` is the one that most people use.
 
-![Image](test7.png)
+![Image](/assets/img/test7.png)
 
 **Tip:** If you accidentally entered the wrong link use the command `git remote remove origin` and readd the remote.
 For a list of all your current remotes type `git remote -v`.
@@ -209,7 +208,7 @@ git push -u origin master
 
 All your latest commits that you haven't uploaded yet will be pushed to the remote repository at GitHub.
 
-![Image](test8.png)
+![Image](/assets/img/test8.png)
 
 The `-u` option will make your local `master` branch track the remote `master` branch, so the next time you push
 any changes to GitHub you can just type `git push`.

@@ -40,11 +40,6 @@ defaults:
       related: true
       permalink: /:categories/:title
 
-  - scope:
-      path: "assets/img"
-    values:
-      image: true
-
 # Build settings
 markdown: kramdown
 theme: minimal-mistakes-jekyll
