@@ -46,6 +46,7 @@ git add <pathspec>...
 
 
 [`<pathspec>...`](https://git-scm.com/docs/gitglossary) is used to add one or multiple specific files or folders that match the pattern.
+This command gives you precise control about which files will be added.
 
 **Examples:**
 
@@ -86,8 +87,19 @@ Stages all files except those starting with a dot. This means that for example a
 would not be added.
 
 ```
-git add -u
+git add -u <pathspec>
 ```
+
+| New files | Modified files | Deleted files |
+|-----------|----------------|---------------|
+| :x:       | ✅   			 | ✅      		 |
+
+Restages files that have been added previously and also removes files from the index that have been deleted.
+Use this option if you want to exlude added files that are not in the staging area yet.
+
+**Note:** In previous versions, using this option only included files in the current directory and its subdirectories.
+Now `-u` refers to the whole working tree (similar to `-A`). 
+{: .notice--danger}
 
 ```
 git commit -am "A commit message"
