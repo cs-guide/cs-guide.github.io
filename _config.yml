@@ -35,6 +35,9 @@ defaults:
     values:
       layout: single
       read_time: true
+      toc: true
+      toc_label: "Contents"
+      toc_icon: "book"
       comments: true
       share: true
       related: true

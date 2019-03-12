@@ -1,3 +1,13 @@
+---
+title: Git Add Command Explained
+tags:
+  - Git
+---
+
+git add empty directory
+git add interactive
+git add all new files
+
 :ballot_box_with_check:
 
 If you have used Git before, you definitely came across the `git add` command. If not, check out my 
@@ -79,12 +89,6 @@ removals of files, now it's the same as `git add -A foo/`. This means that the `
 {: .notice--danger}
 
 
-```
-git add *
-```
-
-Stages all files except those starting with a dot. This means that for example any `.gitignore` or `.config` files in the directory
-would not be added.
 
 ```
 git add -u <pathspec>
@@ -102,12 +106,22 @@ Now `-u` refers to the whole working tree (similar to `-A`).
 {: .notice--danger}
 
 ```
-git commit -am "A commit message"
-```
-
-```
 git commit -a
 ```
+
+| New files | Modified files | Deleted files |
+|-----------|----------------|---------------|
+| :x:       | ✅   			 | ✅      		 |
+
+This will stage all the modified and deleted files and then create a commit based on the state of the index.
+The `-a` option therefore has the same effect as `-u`. It's also common to use `-a` and `-m` at once which can
+be written as `-am` followed by the commit message.
+
+**Examples:**
+
+| `git commit -a -m "A commit message"`       | equivalent to `git add -u; git commit -m "A commit message"`    |
+| `git commit -am "A commit message"`         | same as above                                          |
+
 
 ```
 git add --patch file.txt
@@ -124,6 +138,13 @@ git add -e
 ```
 git add -h
 ```
+
+```
+git add *
+```
+
+Stages all files except those starting with a dot. This means that for example any `.gitignore` or `.config` files in the directory
+would not be added.
 
 ```
 git diff --staged

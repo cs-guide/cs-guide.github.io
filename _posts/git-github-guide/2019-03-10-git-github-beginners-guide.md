@@ -5,7 +5,7 @@ tags:
   - GitHub
 ---
 
-## Introduction
+# Introduction
 
 **Git is for everyone.** 
 Whether you're a software developer, digital artist, student, teacher or writer - 
@@ -131,7 +131,7 @@ This may sound annoying but it prevents you from accidentally adding changes to 
 If you decide you want to unstage any files that you might have accidentally added, you can run
 `git rm --cached <file>` as the terminal message points out.
 
-## Commiting your changes
+## Commit your changes
 
 Now it's time to bundle the changes you have previously made into a single commit. A commit will include all
 files that are currently in the staging area. When using `git command` you will be asked to write a short message about
