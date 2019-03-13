@@ -32,12 +32,22 @@ Take a look at this article from GitLab for example
 > Note: The `.` character typically means all in Git.
 > {: .notice--primary}
 
-`git add .` does in fact **not** add all local changes! (by the way that is not "one command") There are also several [related answers](https://stackoverflow.com/questions/572549/difference-between-git-add-a-and-git-add) about this topic scattered on stackoverflow
-that only cover the differences between two or three options.
-Additionally, the command's options have changed after Git version 2.0. Since the [documentation](https://git-scm.com/docs/git-add) can be pretty hard to read I decided to write this article to fully explain all the different options for the add command.
+`git add .` does in fact **not** add all local changes! (by the way that is not "one command") 
+Adding to the , the command's options have changed after Git version 2.0. 
+
+**Knowing the different options for the `git add` command allows you create smaller and more concise commits.**
+
+Since the [documentation](https://git-scm.com/docs/git-add) can be pretty hard to read I decided to write this article to fully explain all the different options for the add command.
 Hopefully this will clear things up!
 
-## What does `git add` do?
+## What is `git add`?
+
+Git has the concept of a staging area (also called index). The index basically contains a snapshot of your entire project and stores all the files
+you want to include in your next commit. It's an intermediate layer between the working directory and the history of the project (consisting of commits). 
+
+Any time the content of a file changes it has to be readded to the staging area. This gives you finer control of the contents of your next commit and prevents you from accidentally committing unwanted changes.
+
+You can precisely choose which files you want to stage including modified, new or deleted files. 
 
 ## Add all modified files
 
