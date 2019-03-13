@@ -5,10 +5,17 @@ tags:
 ---
 
 git add empty directory
+git add . not working
+git add specific files
 git add interactive
 git add all new files
-
-:ballot_box_with_check:
+git add all untracked files
+git add all modified files only
+git add all modified files
+git add ignored file
+git undo last add
+how to undo git add
+git undo add single file
 
 If you have used Git before, you definitely came across the `git add` command. If not, check out my 
 <a href="{{ site.baseurl }}{% post_url git-github-guide/2019-03-10-git-github-beginners-guide %}">Complete Beginner's Guide to Git</a>.
@@ -31,6 +38,17 @@ Additionally, the command's options have changed after Git version 2.0. Since th
 Hopefully this will clear things up!
 
 ## What does `git add` do?
+
+## Add all modified files
+
+## Add new files only 
+
+## How can I add an empty directory?
+
+## All options explained
+
+This section should explain the purpose of **all** options for the `add` command, which files they affect and when you should use them.
+Please let me know if I missed any in the comments and feel free to give feedback on this list.
 
 ```
 git add .
@@ -55,8 +73,8 @@ git add <pathspec>...
 | ✅        | ✅             | ✅            |
 
 
-[`<pathspec>...`](https://git-scm.com/docs/gitglossary) is used to add one or multiple specific files or folders that match the pattern.
-This command gives you precise control about which files will be added.
+[`<pathspec>...`](https://git-scm.com/docs/gitglossary) is used to add one or multiple specific files or folders that match the given pattern.
+This command gives you precise control about which files will be added. [Empty folders](#how-can-i-add-an-empty-directory) (directories that contain only folders and no files) cannot be added this way and Git will simply ignore them.
 
 **Examples:**
 
@@ -163,6 +181,8 @@ to view your commit while you edit the commit message
 
 [Source](https://stackoverflow.com/questions/1085162/commit-only-part-of-a-file-in-git)
 https://stackoverflow.com/questions/26042390/git-add-asterisk-vs-git-add-period
+
+## Summary
 
 ## Sources
 - [git-scm](https://git-scm.com/docs/git-add) - the official documentation for the `add` command

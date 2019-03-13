@@ -1,14 +1,30 @@
 Plugins:
+========
+
 Jekyll postfiles: https://nhoizey.github.io/jekyll-postfiles/
 
+_sass/_reset.scss:
+==================
+
+a {
+  color: $link-color;
+  text-decoration: none;
+}
+
+assets/css/main.scss:
+=====================
+
+$link-color: #0074D9 !default; (https://clrs.cc/)
 
 _layout/single.html:
+====================
 
 /*<h4 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h4>*/
 
 <h4 class="page__related-title">{{ site.data.ui-text[site.locale].more_label | default: "Learn more" }}</h4>
 
-_sass/_variables.scss
+_sass/_variables.scss:
+======================
 
 /*$right-sidebar-width-narrow: 200px !default;
 $right-sidebar-width: 300px !default;
