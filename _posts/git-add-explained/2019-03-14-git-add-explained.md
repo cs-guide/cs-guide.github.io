@@ -49,9 +49,14 @@ Any time the content of a file changes it has to be readded to the staging area.
 
 You can precisely choose which files you want to stage including modified, new or deleted files. 
 
-## How can I add existing/modified files?
+## How can I add only modified/tracked files?
 
-## How can I add only new files? 
+If you only want to add modified or deleted files which have already been staged you can use [`git add -u`](#git-add-u).
+
+However, if you decide to exclude specific files from a commit you should consider adding them to a `.gitignore` file. 
+This will prevent you from accidentally staging them. 
+
+## How can I add only new/untracked files? 
 
 Sometimes it can be useful to only stage new files that you created and exclude existing files from a commit. Probably the easiest way to do this is using interactive mode which I'll discuss in more detail [here](#interactive-staging). 
 
@@ -65,9 +70,10 @@ Let's say you modified the file `README.md` and recently created the files `inde
 ![Image](git-add-interactive-mode.png)
 
 If you prefer a single command:
-```
+
+{% highlight bash %}
 echo -e "a\n*\nq\n"|git add -i
-```
+{% endhighlight %}
 
 (From [this](https://stackoverflow.com/a/7446711) answer on stackoverflow by [Mat](https://stackoverflow.com/users/635608/mat))
 
@@ -88,9 +94,13 @@ git add .
 | ✅        | ✅             | ✅            |
 
 Stages all files in the current directory and its subdirectories. The `.` refers to the current directory whereas
-`..` would refer to the parent directory. If your aim is to stage all files, you should only use this command if
+`..` would refer to the parent directory.
+
+If your aim is to stage all files, you should only use this command if
 you are currently in the root folder of your project (where your `.git` folder is located). Otherwise, not all 
-files might be added. Run `git status` afterwards to confirm that all files have been added.
+files might be added.
+
+Run `git status` afterwards to confirm that all files have been added.
 
 
 ```
@@ -103,7 +113,9 @@ git add <pathspec>...
 
 
 [`<pathspec>...`](https://git-scm.com/docs/gitglossary) is used to add one or multiple specific files or folders that match the given pattern.
-This command gives you precise control about which files will be added. [Empty folders](#how-can-i-add-an-empty-directory) (directories that contain only folders and no files) cannot be added this way and Git will simply ignore them.
+This command gives you precise control about which files will be added.
+
+[Empty folders](#how-can-i-add-an-empty-directory) (directories that contain only folders and no files) cannot be added this way and Git will simply ignore them.
 
 **Examples:**
 
@@ -135,8 +147,7 @@ if you want to make sure that all new, modified and deleted files in your projec
 removals of files, now it's the same as `git add -A foo/`. This means that the `-A` option is not required anymore when adding a specific folder. Use `git --version` to check your current Git version.
 {: .notice--danger}
 
-
-
+<a id="git-add-u"></a>
 ```
 git add -u <pathspec>
 ```
@@ -161,8 +172,9 @@ git commit -a
 | :x:       | ✅   			 | ✅      		 |
 
 This will stage all the modified and deleted files and then create a commit based on the state of the index.
-The `-a` option therefore has the same effect as `-u`. It's also common to use `-a` and `-m` at once which can
-be written as `-am` followed by the commit message.
+The `-a` option therefore has the same effect as `-u`. 
+
+It's also common to use `-a` and `-m` at once which can be written as `-am` followed by the commit message.
 
 **Examples:**
 
