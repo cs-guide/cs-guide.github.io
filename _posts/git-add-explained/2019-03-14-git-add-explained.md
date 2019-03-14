@@ -58,7 +58,7 @@ This will prevent you from accidentally staging them.
 
 ## How can I add only new/untracked files? 
 
-Sometimes it can be useful to only stage new files that you created and exclude existing files from a commit. Probably the easiest way to do this is using interactive mode which I'll discuss in more detail [here](#interactive-staging). 
+Often it can be useful to only stage new files that you created and exclude existing files from a commit. Probably the easiest way to do this is using interactive mode which I'll discuss in more detail [here](#interactive-staging). 
 
 Let's say you modified the file `README.md` and recently created the files `index.html` and `404.html`. If you only wanted to add the new `.html` files you could do it like this:
 
@@ -78,6 +78,29 @@ echo -e "a\n*\nq\n"|git add -i
 (From [this](https://stackoverflow.com/a/7446711) answer on stackoverflow by [Mat](https://stackoverflow.com/users/635608/mat))
 
 ## How can I add an empty directory?
+
+Sometimes you need empty folders to **define a specific folder structure**. The folders can then be populated with files later.
+
+Currently Git does not support staging empty folders. Git only cares about files and not about folders without any content to track. 
+
+One way to solve this problem is by creating an file whose sole purpose is to enable Git to track the "empty" folder. 
+You can call this empty file however you want but a convention is to name it `.keep` or better `.gitkeep`.
+
+Alternatively, create a `README.md` or file if you want to add some extra explanation about the purpose of the folder.
+
+This works with any file of course, for example you can simply put a copy of your `LICENSE.md` file in every folder.
+
+If you're certain that the folder will never contain any files, you can also create a `.gitignore` file (using the command `touch .gitignore`) that ignores everything except itself:
+
+```
+# Ignore everything in this directory
+*
+# Except this file
+!.gitignore
+```
+
+(From this [answer](https://stackoverflow.com/a/932982) by [Jamie Flournoy](https://stackoverflow.com/users/115218/jamie-flournoy))
+
 
 ## All options explained
 
