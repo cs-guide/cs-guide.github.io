@@ -49,15 +49,34 @@ Any time the content of a file changes it has to be readded to the staging area.
 
 You can precisely choose which files you want to stage including modified, new or deleted files. 
 
-## Add all modified files
+## How can I add existing/modified files?
 
-## Add new files only 
+## How can I add only new files? 
+
+Sometimes it can be useful to only stage new files that you created and exclude existing files from a commit. Probably the easiest way to do this is using interactive mode which I'll discuss in more detail [here](#interactive-staging). 
+
+Let's say you modified the file `README.md` and recently created the files `index.html` and `404.html`. If you only wanted to add the new `.html` files you could do it like this:
+
+- `git add -i` to start the interactive mode
+- type `a` or `4` to choose which untracked files you want to add
+- then type `*` to select all files, printing the status using `s` will show you which files have been staged
+- type `q` to quit 
+
+![Image](git-add-interactive-mode.png)
+
+If you prefer a single command:
+```
+echo -e "a\n*\nq\n"|git add -i
+```
+
+(From [this](https://stackoverflow.com/a/7446711) answer on stackoverflow by [Mat](https://stackoverflow.com/users/635608/mat))
 
 ## How can I add an empty directory?
 
 ## All options explained
 
-This section should explain the purpose of **all** options for the `add` command, which files they affect and when you should use them.
+In this section I'll explain **all** options for the `add` command, which files they affect and when you should use them.
+
 Please let me know if I missed any in the comments and feel free to give feedback on this list.
 
 ```
@@ -149,6 +168,9 @@ be written as `-am` followed by the commit message.
 
 | `git commit -a -m "A commit message"`       | equivalent to `git add -u; git commit -m "A commit message"`    |
 | `git commit -am "A commit message"`         | same as above                                          |
+
+
+### Interactive staging
 
 
 ```
