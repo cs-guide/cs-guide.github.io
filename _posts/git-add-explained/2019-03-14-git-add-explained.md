@@ -4,6 +4,8 @@ tags:
   - Git
 ---
 
+![Image](test5.png)
+
 If you have used Git before, you definitely came across the `git add` command. If not, check out my 
 <a href="{{ site.baseurl }}{% post_url git-github-guide/2019-03-10-git-github-beginners-guide %}">Complete Beginner's Guide to Git</a>.
 
@@ -170,6 +172,24 @@ Separates the option from specified file names or pathspecs.
 
 This is used to avoid ambiguities between file names or paths starting with a `-` and option prefixes allowing you
 to stage them anyway.
+
+```
+git add -i
+```
+
+Starts the interactive staging mode in the command line.
+
+Since this is a pretty big topic on its own I'll not cover it in this post.
+
+However, I'm planning to write an article about interactive staging in the future. For a quick first impression, have a look at the [common question](#how-can-i-add-only-newuntracked-files) at the end of this post.
+
+**Same as:** `git add --interactive`
+
+```
+git add -e
+```
+
+This lets you manually 
 
 ```
 git add <options> --refresh
