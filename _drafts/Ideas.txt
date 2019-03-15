@@ -1,5 +1,10 @@
 
-- Git add explained!!
+* Git add explained
+
+- Guide
+- Git interactive staging
+- .gitignore explained
+
 - Github for students
 - Git guide
 - Things you didn't know you could do in git
