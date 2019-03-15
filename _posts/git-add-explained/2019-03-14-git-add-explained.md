@@ -1,5 +1,5 @@
 ---
-title: Git Add Command Explained
+title: "Git Add: Every single option explained" 
 tags:
   - Git
 ---
@@ -69,7 +69,7 @@ you are currently in the root folder of your project (where your `.git` folder i
 files might be added.
 
 Run `git status` afterwards to confirm that all files have been added or even better:
-Use the [`-N`](#git-add-n) option before staging.
+Use the [`-n`](#git-add-n) option before staging.
 
 
 ```
@@ -119,7 +119,7 @@ now it's the same as `git add -A foo/`. This means that the `-A` option is not r
 
 <a id="git-add-u"></a>
 ```
-git add -u <pathspec>
+git add -u <pathspec>...
 ```
 
 | New files | Modified files | Deleted files |
@@ -133,13 +133,6 @@ Use this option if you want to exlude added files that are not in the staging ar
 Now `-u` refers to the whole working tree (similar to `-A`). 
 {: .notice--danger}
 
-<a id="git-add-n"></a>
-```
-git add <options> -N
-```
-
-
-
 ```
 git add *
 ```
@@ -149,6 +142,61 @@ git add *
 | ✅        | ✅             | ✅            |
 
 Stages all files except hidden files (those starting with a dot). This means that for example any `.gitignore` or `.config` files in the directory will not be added.
+
+---
+
+### Advanced add commands
+
+In this section I'll cover some options that are not as widely-used but are generally good to know. 
+
+<a id="git-add-n"></a>
+```
+git add <options> -n
+```
+
+This option is used to print all files that will be added before actually staging them. You should prefer this over
+running `git add` first followed by `git status` since you would have to unstage any files that you accidentally added.
+
+**Same as:** `git add --dry-run`
+
+**Example:**  
+`git add -A -n`: prints 'add `<file>`' for all new, modified and deleted files
+
+```
+git add <options> -- <files>
+```
+
+Separates the option from specified file names or pathspecs. 
+
+This is used to avoid ambiguities between file names or paths starting with a `-` and option prefixes allowing you
+to stage them anyway.
+
+```
+git add <options> --refresh
+```
+
+This option only updates the information Git stores about the files in the index without actually staging them.
+So if `git status` seems to print the wrong details, you should try this option. 
+
+```
+git add <options> --ignore-errors
+```
+
+Sometimes you can run into problems when trying to add files for which you have no permission. This lets you skip the
+affected files without exiting with an error.
+
+The remaining files will be staged normally.
+
+```
+git add -n <options> --ignore-missing
+```
+
+Can only be used in combination with the [`-n`](#git-add-n) option. This will not result in any errors if the given file 
+does not exist.
+
+**Example:**  
+`git add -n no_file.txt --ignore-missing`: ignores `no_file.txt` if not present
+
 
 ---
 
@@ -193,12 +241,12 @@ Removes one or multiple files from the index without affecting the working tree.
 git reset <commit>
 ```
 
-**Same as:** `git reset --mixed <commit>`
-
 Resets the index to a specific commit without affecting the working tree. The changed files will therefore be marked as 
 "untracked" when running `git status`.
 
 This command can also be used with the [`-N`](#git-add-n) option.
+
+**Same as:** `git reset --mixed <commit>`
 
 ### Interactive staging
 
@@ -214,12 +262,6 @@ git add -N
 ```
 git add -e
 ```
-
-```
-git add -h
-```
-
-
 
 ```
 git diff --staged
@@ -243,7 +285,9 @@ https://stackoverflow.com/questions/26042390/git-add-asterisk-vs-git-add-period
 
 ### How can I add only modified/tracked files?
 
-If you only want to add modified or deleted files which have already been staged you can use [`git add -u`](#git-add-u).
+If you only want to add modified or deleted files which have already been staged you can use `git update--index --again` ([source](https://stackoverflow.com/a/10015818)). 
+
+Another possibility you can try out is simply using [`git add -u`](#git-add-u).
 
 However, if you decide to exclude specific files from a commit you should consider adding them to a `.gitignore` file. 
 This will prevent you from accidentally staging them. 

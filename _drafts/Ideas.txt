@@ -4,6 +4,7 @@
 - Guide
 - Git interactive staging
 - .gitignore explained
+- How to improve your Git workflow using git add options
 
 - Github for students
 - Git guide
