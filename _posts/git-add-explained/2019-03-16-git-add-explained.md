@@ -1,13 +1,15 @@
 ---
 title: "Git Add: Every Single Option Explained" 
+excerpt: "Have you wondered about all the different options for the Git Add command? In this post, you'll learn how to use them effectively to create better commits."
+header:
+  teaser: git-add-explained-header.png
 tags:
   - Git
 ---
 
 ![The git add command explained](git-add-explained-header.png "All you need to know about staging")
 
-If you have used Git before, you definitely came across the `git add` command. If not, check out my 
-<a href="{{ site.baseurl }}{% post_url git-github-guide/2019-03-10-git-github-beginners-guide %}">Complete Beginner's Guide to Git</a>.
+If you have used Git before, you definitely came across the `git add` command to select files you want to commit.
 
 I noticed that the usage of this command seems to cause a lot of confusion.
 Take a look at this article from GitLab for example
@@ -21,13 +23,13 @@ Take a look at this article from GitLab for example
 > Note: The `.` character typically means all in Git.
 > {: .notice--primary}
 
-`git add .` does in fact **not** add all local changes! (by the way that is not "one command") 
+`git add .` does, in fact, **not** add all local changes! (by the way that is not "one command") 
 Adding to the confusion, the command's options have changed after Git version 2.0. 
 
-**Knowing the different options for the `git add` command allows you create smaller and more concise commits.**
+**Knowing the different options for the `git add` command allows you to create smaller and more concise commits.**
 
 Since the [documentation](https://git-scm.com/docs/git-add) can be pretty hard to read I decided to write this article to fully explain all the different options for the add command.
-Hopefully this will clear things up!
+Hopefully, this will clear things up!
 
 ## What is `git add`?
 
@@ -45,7 +47,7 @@ Using the `-h` or `--help` option you can see all the available options for this
 
 ## All options explained
 
-In the following sections I'll explain **all** options for the `add` command, which files they affect and when you should use them. 
+In the following sections, I'll explain **all** options for the `add` command, which files they affect and when you should use them. 
 
 Starting with the most common options, I'll continue showing you some lesser known ones and give you some info about related commands and interactive staging. 
 
@@ -68,10 +70,9 @@ Stages all files in the current directory and its subdirectories. The `.` refers
 `..` would refer to the parent directory.
 
 If your aim is to stage all files, you should only use this command if
-you are currently in the root folder of your project (where your `.git` folder is located). Otherwise, not all 
-files might be added.
+you are currently in the root folder of your project (where your `.git` folder is located). Otherwise, not all files might be added.
 
-Run `git status` afterwards to confirm that all files have been added or even better:
+Run `git status` afterward to confirm that all files have been added or even better:
 Use the [`-n`](#git-add-n) option before staging.
 
 
@@ -130,10 +131,10 @@ git add -u <pathspec>...
 | :x:       | ✅   			 | ✅      		 |
 
 Restages files that have been added previously and also removes files from the index that have been deleted.
-Use this option if you want to exlude added files that are not in the staging area yet.
+Use this option if you want to exclude added files that are not in the staging area yet.
 
 **Note:** In previous versions, using this option only included files in the current directory and its subdirectories.
-Now `-u` refers to the whole working tree (similar to `-A`). 
+Now, `-u` refers to the whole working tree (similar to `-A`). 
 {: .notice--danger}
 
 ```
@@ -146,7 +147,7 @@ git add <pathspec>... --ignore-removal
 
 Stages all files except deleted files. 
 
-This options has the same functionality as `git add <pathspec>...` prior to version 2.0. 
+This option has the same functionality as `git add <pathspec>...` prior to version 2.0. 
 
 **Same as:** `git add --no-all`
 
@@ -164,7 +165,7 @@ Stages all files except hidden files (those starting with a dot). This means tha
 
 ### Advanced add commands
 
-In this section I'll cover some options that are not as widely-used but are generally good to know. 
+In this section, I'll cover some options that are not as widely-used but are generally good to know. 
 
 <a id="git-add-n"></a>
 ```
@@ -282,7 +283,7 @@ git commit -a
 | :x:       | ✅   			 | ✅      		 |
 
 This will stage all the modified and deleted files and then create a commit based on the state of the index.
-The `-a` option therefore has the same effect as `-u`. 
+The `-a` option, therefore, has the same effect as `-u`. 
 
 It's also common to use `-a` and `-m` at once which can be written as `-am` followed by the commit message.
 
@@ -310,7 +311,7 @@ Removes one or multiple files from the index without affecting the working tree.
 git reset <commit>
 ```
 
-Resets the index to a specific commit without affecting the working tree. The changed files will therefore be marked as 
+Resets the index to a specific commit without affecting the working tree. The changed files will then be marked as 
 "untracked" when running `git status`.
 
 This command can also be used with the [`-N`](#git-add-n) option.
@@ -322,7 +323,7 @@ This command can also be used with the [`-N`](#git-add-n) option.
 
 ### How can I add only modified/tracked files?
 
-If you only want to add modified or deleted files which have already been staged you can use `git update--index --again` ([source](https://stackoverflow.com/a/10015818)). 
+If you only want to add modified or deleted files which have already been staged you can use `git update-index --again` ([source](https://stackoverflow.com/a/10015818)). 
 
 Another possibility you can try out is simply using [`git add -u`](#git-add-u).
 
@@ -354,14 +355,14 @@ echo -e "a\n*\nq\n"|git add -i
 
 Sometimes you need empty folders to **define a specific folder structure**. The folders can then be populated with files later.
 
-Currently Git does not support staging empty folders. Git only cares about files and not about folders without any content to track. 
+Currently, Git does not support staging empty folders. Git only cares about files and not about folders without any content to track. 
 
 One way to solve this problem is by creating a file whose sole purpose is to enable Git to track the "empty" folder. 
 You can call this empty file however you want but a convention is to name it `.keep` or better `.gitkeep`.
 
 Alternatively, create a `README.md` or file if you want to add some extra explanation about the purpose of the folder.
 
-This works with any file of course, for example you can simply put a copy of your `LICENSE.md` file in every folder.
+This works with any file, of course, for example, you can simply put a copy of your `LICENSE.md` file in every folder.
 
 If you're certain that the folder will never contain any files, you can also create a `.gitignore` file (using the command `touch .gitignore`) that ignores everything except itself:
 

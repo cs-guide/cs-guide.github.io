@@ -5,6 +5,16 @@ tags:
   - GitHub
 ---
 
+ABOUT.md:
+
+If you've never used Git before I would recommend starting with this post:  
+<a href="{{ site.baseurl }}{% post_url git-github-guide/2019-03-10-git-github-beginners-guide %}">A beginner's guide to Git and GitHub</a>
+
+LINK IN ADD EXPLAINED POST:
+
+If not, check out my 
+<a href="{{ site.baseurl }}{% post_url git-github-guide/2019-03-10-git-github-beginners-guide %}">Complete Beginner's Guide to Git</a>.
+
 # Introduction
 
 **Git is for everyone.** 
