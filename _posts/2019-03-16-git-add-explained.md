@@ -7,7 +7,7 @@ tags:
   - Git
 ---
 
-![The git add command explained](git-add-explained-header.png "All you need to know about staging")
+![The git add command explained](_img/git-add-explained/git-add-explained-header.png "All you need to know about staging")
 
 If you have used Git before, you definitely came across the `git add` command to select files you want to commit.
 

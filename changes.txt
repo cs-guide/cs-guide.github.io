@@ -1,7 +1,7 @@
 Plugins:
 ========
 
-Jekyll postfiles: https://nhoizey.github.io/jekyll-postfiles/
+Jekyll postfiles: https://nhoizey.github.io/jekyll-postfiles/ [REMOVED SINCE NOT WORKING ON GH PAGES]
 
 _sass/_reset.scss:
 ==================
