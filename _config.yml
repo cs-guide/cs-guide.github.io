@@ -13,8 +13,11 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-
 #theme: mmistakes/minimal-mistakes
+comments:
+  provider: "disqus"
+  disqus:
+    shortname: "cs-guide"
 
 title: CS Guide
 name: Jonas Strittmatter
@@ -48,11 +51,6 @@ defaults:
       share: true
       related: true
       permalink: /:categories/:title
-
-comments:
-  provider: disqus
-  disqus:
-    shortname: "cs-guide"
 
 # Build settings
 markdown: kramdown
