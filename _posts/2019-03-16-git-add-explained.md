@@ -43,7 +43,7 @@ You can precisely choose which files you want to stage including modified, new o
 
 Using the `-h` or `--help` option you can see all the available options for this command and I will explain them (and related commands) in the section [All options explained](#all-options-explained).
 
-![All options listed using the help command](git-add-help.png "Use git add -h to view all options")
+![All options listed using the help command](_img/git-add-explained/git-add-help.png "Use git add -h to view all options")
 
 ## All options explained
 
@@ -341,7 +341,7 @@ Let's say you modified the file `README.md` and recently created the files `inde
 - then type `*` to select all files, printing the status using `s` will show you which files have been staged
 - type `q` to quit 
 
-![Selecting files to stage in interactive mode](git-add-interactive-mode.png "Use git add -i to stage files interactively")
+![Selecting files to stage in interactive mode](_img/git-add-explained/git-add-interactive-mode.png "Use git add -i to stage files interactively")
 
 If you prefer a single command:
 
