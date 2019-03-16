@@ -49,6 +49,11 @@ defaults:
       related: true
       permalink: /:categories/:title
 
+comments:
+  provider: disqus
+  disqus:
+    shortname: "https-cs-guide-github-io"
+
 # Build settings
 markdown: kramdown
 
