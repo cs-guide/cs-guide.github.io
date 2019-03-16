@@ -2,6 +2,7 @@
 layout: single
 title: About
 permalink: /about/
+comments: true
 ---
 
 Hey, thanks for visiting my site! I'm Jonas and a computer science student at KIT
