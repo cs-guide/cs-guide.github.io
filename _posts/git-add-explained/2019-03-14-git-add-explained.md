@@ -1,10 +1,10 @@
 ---
-title: "Git Add: Every single option explained" 
+title: "Git Add: Every Single Option Explained" 
 tags:
   - Git
 ---
 
-![Image](test5.png)
+![The git add command explained](git-add-explained-header.png "All you need to know about staging")
 
 If you have used Git before, you definitely came across the `git add` command. If not, check out my 
 <a href="{{ site.baseurl }}{% post_url git-github-guide/2019-03-10-git-github-beginners-guide %}">Complete Beginner's Guide to Git</a>.
@@ -39,9 +39,9 @@ Any time the content of a file changes it has to be readded to the staging area.
 
 You can precisely choose which files you want to stage including modified, new or deleted files using `git add`. 
 
-Using the `-h` option you can see all the available options for this command and I will explain them (and related commands) in the section [All options explained](#all-options-explained).
+Using the `-h` or `--help` option you can see all the available options for this command and I will explain them (and related commands) in the section [All options explained](#all-options-explained).
 
-![Image](git-add-help.png)
+![All options listed using the help command](git-add-help.png "Use git add -h to view all options")
 
 ## All options explained
 
@@ -55,6 +55,7 @@ Please let me know if I missed any in the comments and feel free to give feedbac
 
 ### Basic options for `git add`
 
+<a id="git-add-dot"></a>
 ```
 git add .
 ```
@@ -95,7 +96,7 @@ This command gives you precise control about which files will be added.
 | `git add foo`                 | adds all files and subdirectories within the `foo` folder        |
 | `git add foo/*.txt`           | adds all `.txt` files within the `foo` folder and subdirectories |
 
-
+<a id="git-add-A"></a>
 ```
 git add -A
 ```
@@ -136,6 +137,20 @@ Now `-u` refers to the whole working tree (similar to `-A`).
 {: .notice--danger}
 
 ```
+git add <pathspec>... --ignore-removal
+```
+
+| New files | Modified files | Deleted files |
+|-----------|----------------|---------------|
+| ✅       | ✅   			 | :x:      	 |
+
+Stages all files except deleted files. 
+
+This options has the same functionality as `git add <pathspec>...` prior to version 2.0. 
+
+**Same as:** `git add --no-all`
+
+```
 git add *
 ```
 
@@ -165,14 +180,14 @@ running `git add` first followed by `git status` since you would have to unstage
 `git add -A -n`: prints 'add `<file>`' for all new, modified and deleted files
 
 ```
-git add <options> -- <files>
+git add <pathspec> --intent-to-add
 ```
 
-Separates the option from specified file names or pathspecs. 
+Stages the specified files but without their content. 
 
-This is used to avoid ambiguities between file names or paths starting with a `-` and option prefixes allowing you
-to stage them anyway.
+What this means is that you can use this option if you want to see the changes to a file that has not been staged yet. You can then view the differences of the file with commands like `git --diff` or [`git add --patch`](#git-add-p).
 
+<a id="git-add-i"></a>
 ```
 git add -i
 ```
@@ -186,10 +201,44 @@ However, I'm planning to write an article about interactive staging in the futur
 **Same as:** `git add --interactive`
 
 ```
-git add -e
+git add -e <file>
 ```
 
-This lets you manually 
+Starts edit mode and lets you manually select which exact lines of a file to stage. 
+
+Omitting the `<file>` will let you edit untracked files one by one.
+
+This option can be accessed using `e` in [patch mode](#git-add-p). 
+
+**Same as:** `git add --edit`
+
+<a id="git-add-p"></a>
+```
+git add -p <file>
+```
+
+Lets you choose one by one which hunks of a file you want to stage.
+
+This is a shortcut for choosing the `patch` option in [interactive mode](#git-add-i).
+
+**Same as:** `git add --patch`
+
+```
+git add <options> -- <files>
+```
+
+Separates the option from specified file names or pathspecs. 
+
+This is used to avoid ambiguities between file names or paths starting with a `-` and option prefixes allowing you
+to stage them anyway.
+
+```
+git add -f
+```
+
+Allows you to stage files that are ignored using a `.gitignore` file.
+
+**Same as:** `git add --force`
 
 ```
 git add <options> --refresh
@@ -208,7 +257,7 @@ affected files without exiting with an error.
 The remaining files will be staged normally.
 
 ```
-git add -n <options> --ignore-missing
+git add <options> -n --ignore-missing
 ```
 
 Can only be used in combination with the [`-n`](#git-add-n) option. This will not result in any errors if the given file 
@@ -268,38 +317,6 @@ This command can also be used with the [`-N`](#git-add-n) option.
 
 **Same as:** `git reset --mixed <commit>`
 
-### Interactive staging
-
-
-```
-git add --patch file.txt
-```
-
-```
-git add -N
-```
-
-```
-git add -e
-```
-
-```
-git diff --staged
-```
- to check that you staged the correct changes
-
-```
-git reset -p
-```
-to unstage mistakenly added hunks
-
-```
-git commit -v
-```
-to view your commit while you edit the commit message
-
-[Source](https://stackoverflow.com/questions/1085162/commit-only-part-of-a-file-in-git)
-https://stackoverflow.com/questions/26042390/git-add-asterisk-vs-git-add-period
 
 ## Common questions
 
@@ -323,7 +340,7 @@ Let's say you modified the file `README.md` and recently created the files `inde
 - then type `*` to select all files, printing the status using `s` will show you which files have been staged
 - type `q` to quit 
 
-![Image](git-add-interactive-mode.png)
+![Selecting files to stage in interactive mode](git-add-interactive-mode.png "Use git add -i to stage files interactively")
 
 If you prefer a single command:
 
@@ -359,11 +376,26 @@ If you're certain that the folder will never contain any files, you can also cre
 
 ## Summary
 
-Use `-N` option and `git status`, interactive mode.
+In this guide, I showed you the most commonly used options for staging in Git as well as some lesser known ones.
+
+While I didn't go into full detail about every option (especially [interactive](#git-add-i) and [patch](#git-add-p) mode), this should cover the basics to help you make more concise commits. 
+
+I also answered some of the most common questions about this command explaining which option you should use.
+
+If you still have any questions about the usage of some options feel free to leave a comment.
+
+Here are some tips to consider when using the command:
+
+- use [`git add -A`](#git-add-A) instead of [`git add .`](#git-add-dot) if your intent is to stage all files
+- if you want to practice the different options use `git add -n` to see which ones would be staged
+- try out [patch mode](#git-add-p) if you want to split changes in a single file into several commits
+
+Which one of these options is your favorite? Share your best tips below.
 
 ## Sources
 - [git-scm](https://git-scm.com/docs/git-add) - the official documentation for the `add` command
 - [stackoverflow](https://stackoverflow.com/questions/572549/difference-between-git-add-a-and-git-add/) - difference between `git add -A` and `git add .`
+- [stackoverflow](https://stackoverflow.com/questions/26042390/git-add-asterisk-vs-git-add-period) - difference between `git add *` and `git add .`
 
 ## Further reading
 Check out the Pro Git book [online](https://git-scm.com/book/en/v2) or as a [print version](https://www.amazon.com/Pro-Git-Scott-Chacon/dp/1484200772?ie=UTF8&camp=1789&creative=9325&creativeASIN=1430218339&linkCode=as2&tag=git-sfconservancy-20) on Amazon if you want to
