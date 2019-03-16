@@ -2,3 +2,6 @@ _site
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
+*.xcf
+changes.txt
+_drafts

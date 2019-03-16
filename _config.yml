@@ -13,6 +13,9 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
+
+#theme: mmistakes/minimal-mistakes
+
 title: CS Guide
 name: Jonas Strittmatter
 description: >- # this means to ignore newlines until "baseurl:"
@@ -22,6 +25,9 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 include: ['_pages']
+
+plugins:
+  - jekyll-include-cache
 
 footer:
   links:
@@ -45,7 +51,6 @@ defaults:
 
 # Build settings
 markdown: kramdown
-theme: minimal-mistakes-jekyll
 
 
 # Exclude from processing.
