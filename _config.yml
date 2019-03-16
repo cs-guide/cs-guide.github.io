@@ -52,7 +52,7 @@ defaults:
 comments:
   provider: disqus
   disqus:
-    shortname: "https-cs-guide-github-io"
+    shortname: "cs-guide"
 
 # Build settings
 markdown: kramdown
