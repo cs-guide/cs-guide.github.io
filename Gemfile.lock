@@ -47,8 +47,6 @@ GEM
     jekyll-include-cache (0.1.0)
       jekyll (~> 3.3)
     jekyll-paginate (1.1.0)
-    jekyll-postfiles (3.0.0)
-      jekyll (~> 3.6)
     jekyll-sass-converter (1.5.2)
       sass (~> 3.4)
     jekyll-seo-tag (2.5.0)
@@ -115,7 +113,7 @@ PLATFORMS
 DEPENDENCIES
   jekyll (~> 3.8.5)
   jekyll-feed (~> 0.6)
-  jekyll-postfiles
+  jekyll-sitemap
   minima (~> 2.0)
   minimal-mistakes-jekyll
   tzinfo-data
